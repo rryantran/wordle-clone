@@ -14,7 +14,7 @@
             "type": "java",
             "name": "App",
             "request": "launch",
-            "vmArgs": "--module-path /Users/ryantran/Documents/CS/CSCE314/wordle-clone/javafx-sdk-21.0.2/lib --add-modules javafx.controls",
+            "vmArgs": "--module-path /Users/ryantran/Documents/CS/CSCE314/wordle-clone/lib --add-modules javafx.controls",
             "mainClass": "App",
             "projectName": "wordle-clone_1788b80c"
         }
