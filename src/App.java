@@ -14,10 +14,11 @@ public class App extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/App.fxml"));
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/App.css").toExternalForm());
 
             stage.setScene(scene);
-            stage.setTitle("Test");
-
+            stage.setFullScreen(true);
+            stage.setTitle("Wordle!");
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();

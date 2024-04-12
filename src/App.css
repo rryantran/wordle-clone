@@ -1,0 +1,21 @@
+#root {
+  -fx-background-color: #121213;
+}
+
+#gameboard {
+  -fx-border-color: #3a3a3c;
+  -fx-border-width: 3;
+  -fx-border-radius: 10;
+  -fx-background-radius: 10;
+  -fx-font-family: "Helvetica";
+  -fx-text-fill: #f8f8f8;
+  -fx-font-weight: bold;
+}
+
+#keyboard {
+  -fx-background-color: #808384;
+  -fx-background-radius: 10;
+  -fx-font-family: "Helvetica";
+  -fx-text-fill: #f8f8f8;
+  -fx-font-weight: bold;
+}
