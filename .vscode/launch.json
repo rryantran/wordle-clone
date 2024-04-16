@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "WordTest",
+            "request": "launch",
+            "mainClass": "WordTest",
+            "projectName": "wordle-clone_1788b80c"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
