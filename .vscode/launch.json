@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GameboardTest",
+            "request": "launch",
+            "mainClass": "GameboardTest",
+            "projectName": "wordle-clone_1788b80c"
+        },
+        {
+            "type": "java",
             "name": "WordTest",
             "request": "launch",
             "mainClass": "WordTest",
