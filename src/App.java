@@ -15,7 +15,6 @@ public class App extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("/App.fxml"));
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("/App.css").toExternalForm());
-
             stage.setScene(scene);
             stage.setFullScreen(true);
             stage.setTitle("Wordle!");
