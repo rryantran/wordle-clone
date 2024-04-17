@@ -1,18 +1,19 @@
-import java.util.ArrayList;
-
-public class GameboardTest {
+public class GameBoardTest {
     public static void main(String[] args) {
-        Gameboard gameboard = new Gameboard();
-        ArrayList<Character> word = new ArrayList<>();
-
-        word.add('h');
-        word.add('e');
-        word.add('l');
-        word.add('l');
-        word.add('o');
-        gameboard.push(word);
-        
-        ArrayList<Character> poppedWord = gameboard.pop();
-        System.out.println(poppedWord);
+        GameBoard gameboard = new GameBoard();
+        gameboard.rowEnqueue("h");
+        gameboard.rowEnqueue("e");
+        gameboard.rowEnqueue("l");
+        gameboard.rowEnqueue("l");
+        gameboard.rowEnqueue("o");
+        gameboard.rowEnqueue("o");
+        gameboard.rowEnqueue("h");
+        gameboard.rowEnqueue("a");
+        gameboard.rowEnqueue("l");
+        gameboard.rowEnqueue("l");
+        gameboard.rowEnqueue("o");
+        gameboard.rowEnqueue("o");
+        gameboard.boardPop();
+        gameboard.boardPop();
     }
 }
