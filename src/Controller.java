@@ -3,12 +3,15 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Controller {
     GameBoard gameBoard = new GameBoard();
     Word word = new Word();
     int row = 0;
     int col = 0;
+    int numGuesses = 0;
 
     @FXML
     GridPane board;
@@ -19,12 +22,12 @@ public class Controller {
     public void handleKeyPress(KeyEvent e) {
         String keyPressed = e.getCode().toString(); // get pressed key
 
-        if (keyPressed == "ENTER") {
+        if (keyPressed.equals("ENTER")) {
             if (col >= 5) {
                 enterLogic();
             }
         }
-        if (keyPressed == "BACK_SPACE") {
+        if (keyPressed.equals("BACK_SPACE")) {
             if (col > 0) {
                 backspaceLogic();
 
@@ -71,7 +74,7 @@ public class Controller {
     }
 
     // ------------------------------------------------------------------------------------------------------------
-    // ROW + COL LOGIC
+    // INCREMENT / DECREMENT
     // ------------------------------------------------------------------------------------------------------------
     private void incrementRow() {
         ++row;
@@ -85,34 +88,62 @@ public class Controller {
         --col;
     }
 
+    private void incrementGuesses() {
+        ++numGuesses;
+    }
+
     // ------------------------------------------------------------------------------------------------------------
     // KEY LOGIC
     // ------------------------------------------------------------------------------------------------------------
     private void enterLogic() {
-        String[] currWord = new String[5];
+        // temporary word storage
+        List<String> currWord = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            currWord[i] = gameBoard.rowDequeue();
+            currWord.add(gameBoard.rowDequeue());
         }
 
-        gameBoard.boardPush(currWord[0] + currWord[1] + currWord[2] + currWord[3] + currWord[4]); // push the 5 letter word to the board
+        // push word to board
+        gameBoard.boardPush(currWord.get(0) + currWord.get(1) + currWord.get(2) + currWord.get(3) + currWord.get(4));
 
         boolean valid = word.checkValidWord(gameBoard.boardPop().toLowerCase()); // check if word is valid
 
         if (valid) {
             col = 0;
+            setLabelColors(word.getWord());
             incrementRow();
+            incrementGuesses();
         } else {
             System.out.println("Invalid word");
-            gameBoard.rowEnqueue(currWord[0]);
-            gameBoard.rowEnqueue(currWord[1]);
-            gameBoard.rowEnqueue(currWord[2]);
-            gameBoard.rowEnqueue(currWord[3]);
-            gameBoard.rowEnqueue(currWord[4]);
+            gameBoard.rowEnqueue(currWord.get(0));
+            gameBoard.rowEnqueue(currWord.get(1));
+            gameBoard.rowEnqueue(currWord.get(2));
+            gameBoard.rowEnqueue(currWord.get(3));
+            gameBoard.rowEnqueue(currWord.get(4));
         }
     }
 
     private void backspaceLogic() {
         gameBoard.rowBackspace();
         decrementCol();
+    }
+
+    // ------------------------------------------------------------------------------------------------------------
+    // GAME LOGIC
+    // ------------------------------------------------------------------------------------------------------------
+    private void setLabelColors(String word) {
+        for (int j = 0; j < 5; j++) {
+            Label label = getLabelByIndex(board, row, j);
+            String letter = String.valueOf(word.charAt(j)).toUpperCase();
+
+            if (label != null) {
+                if (label.getText().equals(letter)) {
+                    label.setStyle("-fx-background-color: #538d4e");
+                } else if (word.contains(label.getText().toLowerCase())) {
+                    label.setStyle("-fx-background-color: #b49f3a");
+                } else {
+                    label.setStyle("-fx-background-color: #3a3a3c");
+                }
+            }
+        }
     }
 }
