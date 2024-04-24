@@ -5,43 +5,47 @@ import java.util.Stack;
 public class GameBoard {
     private Stack<String> gameBoard;
     private Queue<String> gameRow;
-    private int i;
+    private int iter;
 
     // default constructor
     public GameBoard() {
         gameBoard = new Stack<String>();
         gameRow = new LinkedList<String>();
-        i = 0;
+        iter = 0;
     }
 
+    // enqueue a letter to the row
     public void rowEnqueue(String c) {
-        if (i < 5) {
+        if (iter < 5) {
             gameRow.add(c); // add to row if letter limit not reached
-            ++i;
-
-            System.out.println("Added to current row: " + c);
-            System.out.println("I: " + i);
-        } else {
-            System.out.println("Row filled. Resetting...");
-            // add to stack if letter limit is reached and move to next row
-            boardPush(rowDequeue() + rowDequeue() + rowDequeue() + rowDequeue() + rowDequeue());
-
-            System.out.println("Added to stack: " + gameBoard.peek());
-            System.out.println("Reset I: " + i);
+            ++iter;
         }
     }
 
-    public String boardPop() {
-        System.out.println("Popping: " + gameBoard.peek());
-        return gameBoard.pop();
-    }
-
-    private String rowDequeue() {
+    // dequeue a letter from the row
+    public String rowDequeue() {
         return gameRow.poll();
     }
 
-    private void boardPush(String s) {
+    // push the finished row to the board
+    public void boardPush(String s) {
         gameBoard.push(s);
-        i = 0;
+        iter = 0; // reset for next row
+    }
+
+    // pop the most recent word from the board
+    public String boardPop() {
+        System.out.println("Most Recent: " + gameBoard.peek());
+        return gameBoard.pop();
+    }
+
+    // get the current iterator
+    public int getIterator() {
+        return iter;
+    }
+
+    // increment the iterator
+    public void decrementIterator() {
+        --iter;
     }
 }
