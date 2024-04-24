@@ -146,4 +146,20 @@ public class Controller {
             }
         }
     }
+
+    public void resetGame() {
+        gameBoard = new GameBoard();
+        word = new Word();
+        row = 0;
+        col = 0;
+        numGuesses = 0;
+
+        for (int i = 0; i < 6; ++i) {
+            for (int j = 0; j < 5; ++j) {
+                Label label = getLabelByIndex(board, i, j);
+                label.setStyle("-fx-background-color: #121213");
+                label.setText("");
+            }
+        }
+    }
 }

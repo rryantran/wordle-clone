@@ -19,3 +19,11 @@
   -fx-text-fill: #f8f8f8;
   -fx-font-weight: bold;
 }
+
+#reset {
+  -fx-background-color: #121213;
+  -fx-font-family: "Helvetica";
+  -fx-text-fill: #f8f8f8;
+  -fx-font-weight: bold;
+  -fx-font-size: 20;
+}
