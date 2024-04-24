@@ -1,5 +1,7 @@
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
@@ -15,6 +17,8 @@ public class Controller {
 
     @FXML
     GridPane board;
+    @FXML
+    Button reset;
 
     // ------------------------------------------------------------------------------------------------------------
     // KEY EVENT HANDLER
@@ -137,16 +141,19 @@ public class Controller {
 
             if (label != null) {
                 if (label.getText().equals(letter)) {
-                    label.setStyle("-fx-background-color: #538d4e");
+                    label.setStyle("-fx-background-color: #538d4e; -fx-border-color: #538d4e");
                 } else if (word.contains(label.getText().toLowerCase())) {
-                    label.setStyle("-fx-background-color: #b49f3a");
+                    label.setStyle("-fx-background-color: #b49f3a; -fx-border-color: #b49f3a");
                 } else {
-                    label.setStyle("-fx-background-color: #3a3a3c");
+                    label.setStyle("-fx-background-color: #3a3a3c; -fx-border-color: #3a3a3c");
                 }
             }
         }
     }
-
+    
+    // ------------------------------------------------------------------------------------------------------------
+    // RESET GAME
+    // ------------------------------------------------------------------------------------------------------------
     public void resetGame() {
         gameBoard = new GameBoard();
         word = new Word();
@@ -161,5 +168,10 @@ public class Controller {
                 label.setText("");
             }
         }
+    }
+
+    public void resetHover() {
+        Cursor cursor = Cursor.HAND;
+        reset.setCursor(cursor);
     }
 }

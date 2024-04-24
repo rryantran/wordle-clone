@@ -400,7 +400,7 @@
       </BorderPane>
    </bottom>
    <top>
-      <Button fx:id="reset" mnemonicParsing="false" onMouseClicked="#resetGame" text="RESET" BorderPane.alignment="CENTER">
+      <Button fx:id="reset" mnemonicParsing="false" onMouseClicked="#resetGame" onMouseEntered="#resetHover" text="RESET" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets top="60.0" />
          </BorderPane.margin>
