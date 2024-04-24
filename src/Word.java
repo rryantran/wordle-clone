@@ -9,10 +9,8 @@ public class Word {
     // default constructor
     public Word() {
         selectedWord = "";
-    }
-
-    public String getWord() {
-        return selectedWord;
+        setWord();
+        System.out.println("Selected word: " + selectedWord);
     }
 
     public void setWord() {
