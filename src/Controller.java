@@ -43,7 +43,7 @@ public class Controller {
             if (label != null) {
                 label.setText(e.getCode().toString());
             }
-            
+
             if (col < 5) {
                 incrementCol();
             }
@@ -89,12 +89,26 @@ public class Controller {
     // KEY LOGIC
     // ------------------------------------------------------------------------------------------------------------
     private void enterLogic() {
-        gameBoard.boardPush(gameBoard.rowDequeue() + gameBoard.rowDequeue() + gameBoard.rowDequeue()
-                + gameBoard.rowDequeue() + gameBoard.rowDequeue()); // push the 5 letter word to the board
-        gameBoard.boardPop(); // pop the word from the board for comparison
+        String[] currWord = new String[5];
+        for (int i = 0; i < 5; i++) {
+            currWord[i] = gameBoard.rowDequeue();
+        }
 
-        col = 0;
-        incrementRow();
+        gameBoard.boardPush(currWord[0] + currWord[1] + currWord[2] + currWord[3] + currWord[4]); // push the 5 letter word to the board
+
+        boolean valid = word.checkValidWord(gameBoard.boardPop().toLowerCase()); // check if word is valid
+
+        if (valid) {
+            col = 0;
+            incrementRow();
+        } else {
+            System.out.println("Invalid word");
+            gameBoard.rowEnqueue(currWord[0]);
+            gameBoard.rowEnqueue(currWord[1]);
+            gameBoard.rowEnqueue(currWord[2]);
+            gameBoard.rowEnqueue(currWord[3]);
+            gameBoard.rowEnqueue(currWord[4]);
+        }
     }
 
     private void backspaceLogic() {
