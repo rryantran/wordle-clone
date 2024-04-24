@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class GameBoard {
     private Stack<String> gameBoard;
-    private Queue<String> gameRow;
+    private LinkedList<String> gameRow;
     private int iter;
 
     // default constructor
@@ -24,7 +24,13 @@ public class GameBoard {
 
     // dequeue a letter from the row
     public String rowDequeue() {
-        return gameRow.poll();
+        return gameRow.removeFirst();
+    }
+
+    // remove last letter from the row
+    public String rowBackspace() {
+        --iter;
+        return gameRow.removeLast();
     }
 
     // push the finished row to the board
@@ -42,10 +48,5 @@ public class GameBoard {
     // get the current iterator
     public int getIterator() {
         return iter;
-    }
-
-    // increment the iterator
-    public void decrementIterator() {
-        --iter;
     }
 }

@@ -43,8 +43,10 @@ public class Controller {
             if (label != null) {
                 label.setText(e.getCode().toString());
             }
-
-            incrementCol();
+            
+            if (col < 5) {
+                incrementCol();
+            }
         }
     }
 
@@ -96,8 +98,7 @@ public class Controller {
     }
 
     private void backspaceLogic() {
-        gameBoard.rowDequeue();
-        gameBoard.decrementIterator();
+        gameBoard.rowBackspace();
         decrementCol();
     }
 }
