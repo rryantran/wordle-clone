@@ -33,8 +33,7 @@ public class Controller {
                     enterLogic();
                     checkGameOver();
                 }
-            }
-            if (keyPressed.equals("BACK_SPACE")) {
+            } else if (keyPressed.equals("BACK_SPACE")) {
                 if (col > 0) {
                     backspaceLogic();
 
@@ -44,8 +43,7 @@ public class Controller {
                         label.setText("");
                     }
                 }
-            }
-            if (Character.isLetter(keyPressed.charAt(0)) && keyPressed.length() == 1) {
+            } else if (Character.isLetter(keyPressed.charAt(0)) && keyPressed.length() == 1) {
                 gameBoard.rowEnqueue(e.getCode().toString());
 
                 Label label = getLabelByIndex(board, row, col);
@@ -187,6 +185,7 @@ public class Controller {
         row = 0;
         col = 0;
         numGuesses = 0;
+        gameOver = false;
 
         for (int i = 0; i < 6; ++i) {
             for (int j = 0; j < 5; ++j) {
