@@ -12,7 +12,14 @@
   -fx-font-weight: bold;
 }
 
-#keyboard {
+.keyboard {
+  -fx-background-color: #808384;
+  -fx-background-radius: 10;
+  -fx-font-family: "Helvetica";
+  -fx-text-fill: #f8f8f8;
+  -fx-font-weight: bold;
+}
+.keyboard-large {
   -fx-background-color: #808384;
   -fx-background-radius: 10;
   -fx-font-family: "Helvetica";
