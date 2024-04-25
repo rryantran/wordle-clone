@@ -4,6 +4,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,12 +54,54 @@ public class Controller {
                         }
                     }
                 } else if (Character.isLetter(keyPressed.charAt(0)) && keyPressed.length() == 1) {
-                    gameBoard.rowEnqueue(e.getCode().toString());
+                    gameBoard.rowEnqueue(keyPressed);
 
                     Label label = getLabelByIndex(board, row, col);
 
                     if (label != null) {
-                        label.setText(e.getCode().toString());
+                        label.setText(keyPressed);
+                    }
+
+                    if (col < 5) {
+                        incrementCol();
+                    }
+                }
+            }
+        }
+    }
+
+    // ------------------------------------------------------------------------------------------------------------
+    // KEYBOARD BUTTONS
+    // ------------------------------------------------------------------------------------------------------------
+    public void handleKeyboardPress(MouseEvent e) {
+        if (!gameOver) {
+            Label key = (Label) e.getSource(); // get pressed button
+            String keyPressed = key.getText(); // get text of button
+
+            if (!wrongLetters.contains(keyPressed)) {
+
+                if (keyPressed.equals("ENTER")) {
+                    if (col >= 5) {
+                        enterLogic();
+                        checkGameOver();
+                    }
+                } else if (keyPressed.equals("DELETE")) {
+                    if (col > 0) {
+                        backspaceLogic();
+
+                        Label label = getLabelByIndex(board, row, col);
+
+                        if (label != null) {
+                            label.setText("");
+                        }
+                    }
+                } else if (Character.isLetter(keyPressed.charAt(0)) && keyPressed.length() == 1) {
+                    gameBoard.rowEnqueue(keyPressed);
+
+                    Label label = getLabelByIndex(board, row, col);
+
+                    if (label != null) {
+                        label.setText(keyPressed);
                     }
 
                     if (col < 5) {
