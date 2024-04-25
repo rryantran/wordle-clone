@@ -19,6 +19,12 @@ public class Controller {
     @FXML
     GridPane board;
     @FXML
+    GridPane keyrow1;
+    @FXML
+    GridPane keyrow2;
+    @FXML
+    GridPane keyrow3;
+    @FXML
     Button reset;
 
     // ------------------------------------------------------------------------------------------------------------
@@ -63,7 +69,7 @@ public class Controller {
     // LABEL LOGIC
     // ------------------------------------------------------------------------------------------------------------
     private Label getLabelByIndex(GridPane gridPane, int row, int col) {
-        for (Node node : board.getChildren()) {
+        for (Node node : gridPane.getChildren()) {
             Integer rowIndex = GridPane.getRowIndex(node);
             Integer colIndex = GridPane.getColumnIndex(node);
 
@@ -104,7 +110,7 @@ public class Controller {
     private void enterLogic() {
         // temporary word storage
         List<String> currWord = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; ++i) {
             currWord.add(gameBoard.rowDequeue());
         }
 
@@ -137,17 +143,48 @@ public class Controller {
     // GAME LOGIC
     // ------------------------------------------------------------------------------------------------------------
     private void setLabelColors(String word) {
-        for (int j = 0; j < 5; j++) {
+        for (int j = 0; j < 5; ++j) {
             Label label = getLabelByIndex(board, row, j);
             String letter = String.valueOf(word.charAt(j)).toUpperCase();
 
             if (label != null) {
                 if (label.getText().equals(letter)) {
                     label.setStyle("-fx-background-color: #538d4e; -fx-border-color: #538d4e");
+                    setKeyColors(label.getText(), "-fx-background-color: #538d4e;");
                 } else if (word.contains(label.getText().toLowerCase())) {
                     label.setStyle("-fx-background-color: #b49f3a; -fx-border-color: #b49f3a");
+                    setKeyColors(label.getText(), "-fx-background-color: #b49f3a;");
                 } else {
                     label.setStyle("-fx-background-color: #3a3a3c; -fx-border-color: #3a3a3c");
+                    setKeyColors(label.getText(), "-fx-background-color: #3a3a3c;");
+                }
+            }
+        }
+    }
+
+    private void setKeyColors(String letter, String color) {
+        for (int j = 0; j < 10; ++j) {
+            Label label1 = getLabelByIndex(keyrow1, 0, j);
+
+            if (label1 != null) {
+                if (label1.getText().equals(letter)) {
+                    label1.setStyle(color);
+                }
+            }
+
+            if (j < 9) {
+                Label label2 = getLabelByIndex(keyrow2, 0, j);
+                Label label3 = getLabelByIndex(keyrow3, 0, j);
+
+                if (label2 != null) {
+                    if (label2.getText().equals(letter)) {
+                        label2.setStyle(color);
+                    }
+                }
+                if (label3 != null) {
+                    if (label3.getText().equals(letter)) {
+                        label3.setStyle(color);
+                    }
                 }
             }
         }
@@ -157,7 +194,7 @@ public class Controller {
         if (numGuesses == 6) {
             gameOver = true;
         } else {
-            for (int j = 0; j < 5; j++) {
+            for (int j = 0; j < 5; ++j) {
                 Label label = getLabelByIndex(board, row - 1, j);
 
                 if (label != null) {
@@ -169,10 +206,10 @@ public class Controller {
                     }
                 }
             }
+        }
 
-            if (gameOver) {
-                System.out.println("Game Over");
-            }
+        if (gameOver) {
+            System.out.println("Game Over");
         }
     }
 
@@ -192,6 +229,19 @@ public class Controller {
                 Label label = getLabelByIndex(board, i, j);
                 label.setStyle("-fx-background-color: #121213");
                 label.setText("");
+            }
+        }
+
+        for (int i = 0; i < 10; ++i) {
+            Label label1 = getLabelByIndex(keyrow1, 0, i);
+            label1.setStyle("-fx-background-color: #808384");
+
+            if (i < 9) {
+                Label label2 = getLabelByIndex(keyrow2, 0, i);
+                label2.setStyle("-fx-background-color: #808384");
+
+                Label label3 = getLabelByIndex(keyrow3, 0, i);
+                label3.setStyle("-fx-background-color: #808384");
             }
         }
     }
