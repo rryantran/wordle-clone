@@ -29,152 +29,152 @@
             <RowConstraints minHeight="50.0" prefHeight="75.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="4">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="4">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.rowIndex="2">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.rowIndex="2">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.rowIndex="1">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.rowIndex="1">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.rowIndex="3">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.rowIndex="3">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" onKeyPressed="#handleKeyPress" prefHeight="75.0" prefWidth="75.0">
+            <Label styleClass="gameboard" alignment="CENTER" onKeyPressed="#handleKeyPress" prefHeight="75.0" prefWidth="75.0">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.rowIndex="5">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.rowIndex="5">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.rowIndex="4">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.rowIndex="4">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label fx:id="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="35.0" />
                </font>

@@ -2,7 +2,15 @@
   -fx-background-color: #121213;
 }
 
-#gameboard {
+#reset {
+  -fx-background-color: #121213;
+  -fx-font-family: "Helvetica";
+  -fx-text-fill: #f8f8f8;
+  -fx-font-weight: bold;
+  -fx-font-size: 20;
+}
+
+.gameboard {
   -fx-border-color: #3a3a3c;
   -fx-border-width: 3;
   -fx-border-radius: 10;
@@ -25,12 +33,4 @@
   -fx-font-family: "Helvetica";
   -fx-text-fill: #f8f8f8;
   -fx-font-weight: bold;
-}
-
-#reset {
-  -fx-background-color: #121213;
-  -fx-font-family: "Helvetica";
-  -fx-text-fill: #f8f8f8;
-  -fx-font-weight: bold;
-  -fx-font-size: 20;
 }
