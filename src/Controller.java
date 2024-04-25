@@ -14,6 +14,7 @@ public class Controller {
     int row = 0;
     int col = 0;
     int numGuesses = 0;
+    boolean gameOver = false;
 
     @FXML
     GridPane board;
@@ -24,35 +25,38 @@ public class Controller {
     // KEY EVENT HANDLER
     // ------------------------------------------------------------------------------------------------------------
     public void handleKeyPress(KeyEvent e) {
-        String keyPressed = e.getCode().toString(); // get pressed key
+        if (!gameOver) {
+            String keyPressed = e.getCode().toString(); // get pressed key
 
-        if (keyPressed.equals("ENTER")) {
-            if (col >= 5) {
-                enterLogic();
+            if (keyPressed.equals("ENTER")) {
+                if (col >= 5) {
+                    enterLogic();
+                    checkGameOver();
+                }
             }
-        }
-        if (keyPressed.equals("BACK_SPACE")) {
-            if (col > 0) {
-                backspaceLogic();
+            if (keyPressed.equals("BACK_SPACE")) {
+                if (col > 0) {
+                    backspaceLogic();
+
+                    Label label = getLabelByIndex(board, row, col);
+
+                    if (label != null) {
+                        label.setText("");
+                    }
+                }
+            }
+            if (Character.isLetter(keyPressed.charAt(0)) && keyPressed.length() == 1) {
+                gameBoard.rowEnqueue(e.getCode().toString());
 
                 Label label = getLabelByIndex(board, row, col);
 
                 if (label != null) {
-                    label.setText("");
+                    label.setText(e.getCode().toString());
                 }
-            }
-        }
-        if (Character.isLetter(keyPressed.charAt(0)) && keyPressed.length() == 1) {
-            gameBoard.rowEnqueue(e.getCode().toString());
 
-            Label label = getLabelByIndex(board, row, col);
-
-            if (label != null) {
-                label.setText(e.getCode().toString());
-            }
-
-            if (col < 5) {
-                incrementCol();
+                if (col < 5) {
+                    incrementCol();
+                }
             }
         }
     }
@@ -150,7 +154,30 @@ public class Controller {
             }
         }
     }
-    
+
+    private void checkGameOver() {
+        if (numGuesses == 6) {
+            gameOver = true;
+        } else {
+            for (int j = 0; j < 5; j++) {
+                Label label = getLabelByIndex(board, row - 1, j);
+
+                if (label != null) {
+                    if (label.getStyle().equals("-fx-background-color: #538d4e; -fx-border-color: #538d4e")) {
+                        gameOver = true;
+                    } else {
+                        gameOver = false;
+                        break;
+                    }
+                }
+            }
+
+            if (gameOver) {
+                System.out.println("Game Over");
+            }
+        }
+    }
+
     // ------------------------------------------------------------------------------------------------------------
     // RESET GAME
     // ------------------------------------------------------------------------------------------------------------
