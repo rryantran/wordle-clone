@@ -5,6 +5,7 @@ import java.util.Random;
 
 public class Word {
     private String selectedWord;
+    private List<String> wordList;
 
     // default constructor
     public Word() {
@@ -15,11 +16,19 @@ public class Word {
 
     public void setWord() {
         try {
-            List<String> lines = Files.readAllLines(Paths.get("src/words.txt")); // read all words into a list
+            wordList = Files.readAllLines(Paths.get("src/words.txt")); // read all words into a list
             Random random = new Random();
-            selectedWord = lines.get(random.nextInt(lines.size())); // select a random word from the list
+            selectedWord = wordList.get(random.nextInt(wordList.size())); // select a random word from the list
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public String getWord() {
+        return selectedWord;
+    }
+
+    public boolean checkValidWord(String word) {
+        return wordList.contains(word);
     }
 }

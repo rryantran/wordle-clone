@@ -40,7 +40,7 @@ public class GameBoard {
 
     // pop the most recent word from the board
     public String boardPop() {
-        System.out.println("Most Recent: " + gameBoard.peek());
+        System.out.println("Guessed: " + gameBoard.peek());
         return gameBoard.pop();
     }
 

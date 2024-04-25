@@ -20,8 +20,8 @@ public class App extends Application {
             scene.setOnKeyPressed(e -> {
                 controller.handleKeyPress(e);
             }); // key press event handler
-
             scene.getStylesheets().add(getClass().getResource("/App.css").toExternalForm());
+
             stage.setScene(scene);
             stage.setFullScreen(true);
             stage.setTitle("Wordle!");
