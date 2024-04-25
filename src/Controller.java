@@ -11,6 +11,7 @@ import java.util.List;
 public class Controller {
     GameBoard gameBoard = new GameBoard();
     Word word = new Word();
+    List<String> wrongLetters = new ArrayList<>();
     int row = 0;
     int col = 0;
     int numGuesses = 0;
@@ -34,32 +35,35 @@ public class Controller {
         if (!gameOver) {
             String keyPressed = e.getCode().toString(); // get pressed key
 
-            if (keyPressed.equals("ENTER")) {
-                if (col >= 5) {
-                    enterLogic();
-                    checkGameOver();
-                }
-            } else if (keyPressed.equals("BACK_SPACE")) {
-                if (col > 0) {
-                    backspaceLogic();
+            if (!wrongLetters.contains(keyPressed)) {
+
+                if (keyPressed.equals("ENTER")) {
+                    if (col >= 5) {
+                        enterLogic();
+                        checkGameOver();
+                    }
+                } else if (keyPressed.equals("BACK_SPACE")) {
+                    if (col > 0) {
+                        backspaceLogic();
+
+                        Label label = getLabelByIndex(board, row, col);
+
+                        if (label != null) {
+                            label.setText("");
+                        }
+                    }
+                } else if (Character.isLetter(keyPressed.charAt(0)) && keyPressed.length() == 1) {
+                    gameBoard.rowEnqueue(e.getCode().toString());
 
                     Label label = getLabelByIndex(board, row, col);
 
                     if (label != null) {
-                        label.setText("");
+                        label.setText(e.getCode().toString());
                     }
-                }
-            } else if (Character.isLetter(keyPressed.charAt(0)) && keyPressed.length() == 1) {
-                gameBoard.rowEnqueue(e.getCode().toString());
 
-                Label label = getLabelByIndex(board, row, col);
-
-                if (label != null) {
-                    label.setText(e.getCode().toString());
-                }
-
-                if (col < 5) {
-                    incrementCol();
+                    if (col < 5) {
+                        incrementCol();
+                    }
                 }
             }
         }
@@ -157,6 +161,7 @@ public class Controller {
                 } else {
                     label.setStyle("-fx-background-color: #3a3a3c; -fx-border-color: #3a3a3c");
                     setKeyColors(label.getText(), "-fx-background-color: #3a3a3c;");
+                    wrongLetters.add(label.getText());
                 }
             }
         }
@@ -223,6 +228,7 @@ public class Controller {
         col = 0;
         numGuesses = 0;
         gameOver = false;
+        wrongLetters.clear();
 
         for (int i = 0; i < 6; ++i) {
             for (int j = 0; j < 5; ++j) {
