@@ -17,6 +17,8 @@ public class App extends Application {
             Controller controller = loader.getController();
             Scene scene = new Scene(root);
 
+            controller.setStage(stage);
+            
             scene.setOnKeyPressed(e -> {
                 controller.handleKeyPress(e);
             }); // key press event handler

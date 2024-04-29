@@ -1,33 +1,96 @@
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Popup;
+import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
-    GameBoard gameBoard = new GameBoard();
-    Word word = new Word();
-    List<String> wrongLetters = new ArrayList<>();
-    int row = 0;
-    int col = 0;
-    int numGuesses = 0;
-    boolean gameOver = false;
+    private GameBoard gameBoard = new GameBoard();
+    private StatBoard statBoard = new StatBoard();
+    private Word word = new Word();
+    private List<String> wrongLetters = new ArrayList<>();
+    private int row = 0;
+    private int col = 0;
+    private int numGuesses = 0;
+    private boolean gameOver = false;
+    private boolean win = false;
+
+    private Stage stage;
+    private Popup popup;
+    private StatBoardController statBoardController;
 
     @FXML
-    GridPane board;
+    private GridPane board;
     @FXML
-    GridPane keyrow1;
+    private GridPane keyrow1;
     @FXML
-    GridPane keyrow2;
+    private GridPane keyrow2;
     @FXML
-    GridPane keyrow3;
+    private GridPane keyrow3;
     @FXML
-    Button reset;
+    private Button reset;
+
+    // ------------------------------------------------------------------------------------------------------------
+    // SET EXTERNAL VARIABLES
+    // ------------------------------------------------------------------------------------------------------------
+    public void setStage(Stage startStage) {
+        stage = startStage;
+    }
+
+    // ------------------------------------------------------------------------------------------------------------
+    // POPUP HANDLER
+    // ------------------------------------------------------------------------------------------------------------
+    public void showPopup(Stage stage, String FXMLPath) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(FXMLPath));
+            Parent root = loader.load();
+
+            if (FXMLPath.equals("/StatBoard.fxml")) {
+                // load stat board controller for stat board popup
+                statBoardController = loader.getController();
+                statBoardController.setStatBoard(statBoard);
+            }
+
+            // set up popup
+            popup = new Popup();
+            popup.getContent().add(root);
+            popup.show(stage);
+
+            // center position
+            double centerX = stage.getWidth() / 2;
+            double centerY = stage.getHeight() / 2;
+
+            // hide popup to access dimensions
+            popup.hide();
+
+            // subtract popup size
+            double finalX = centerX - popup.getWidth() / 2;
+            double finalY = centerY - popup.getHeight() / 2;
+
+            // set popup position
+            popup.setX(finalX);
+            popup.setY(finalY);
+
+            popup.show(stage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void hidePopup() {
+        if (popup != null) {
+            popup.hide();
+        }
+    }
 
     // ------------------------------------------------------------------------------------------------------------
     // KEY EVENT HANDLER
@@ -45,6 +108,7 @@ public class Controller {
                     }
                 } else if (keyPressed.equals("BACK_SPACE")) {
                     if (col > 0) {
+                        hidePopup();
                         backspaceLogic();
 
                         Label label = getLabelByIndex(board, row, col);
@@ -172,6 +236,7 @@ public class Controller {
             incrementRow();
             incrementGuesses();
         } else {
+            showPopup(stage, "/InvalidWordPopup.fxml");
             System.out.println("Invalid word");
             gameBoard.rowEnqueue(currWord.get(0));
             gameBoard.rowEnqueue(currWord.get(1));
@@ -239,25 +304,30 @@ public class Controller {
     }
 
     private void checkGameOver() {
-        if (numGuesses == 6) {
-            gameOver = true;
-        } else {
+        if (numGuesses <= 6 && !win) {
             for (int j = 0; j < 5; ++j) {
                 Label label = getLabelByIndex(board, row - 1, j);
 
                 if (label != null) {
                     if (label.getStyle().equals("-fx-background-color: #538d4e; -fx-border-color: #538d4e")) {
                         gameOver = true;
+                        win = true;
                     } else {
                         gameOver = false;
+                        win = false;
                         break;
                     }
                 }
             }
+
+            if (numGuesses == 6) {
+                gameOver = true;
+            }
         }
 
         if (gameOver) {
-            System.out.println("Game Over");
+            statBoard.saveStats(win, numGuesses);
+            showPopup(stage, "/StatBoard.fxml");
         }
     }
 
@@ -267,11 +337,14 @@ public class Controller {
     public void resetGame() {
         gameBoard = new GameBoard();
         word = new Word();
+        statBoard = new StatBoard();
         row = 0;
         col = 0;
         numGuesses = 0;
         gameOver = false;
+        win = false;
         wrongLetters.clear();
+        hidePopup();
 
         for (int i = 0; i < 6; ++i) {
             for (int j = 0; j < 5; ++j) {
