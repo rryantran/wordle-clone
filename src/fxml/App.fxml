@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -29,152 +30,152 @@
             <RowConstraints minHeight="50.0" prefHeight="75.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="1">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="4">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="4">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="3">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="2">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.rowIndex="2">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.rowIndex="2">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.rowIndex="1">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.rowIndex="1">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.rowIndex="3">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.rowIndex="3">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="4" GridPane.rowIndex="2">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" onKeyPressed="#handleKeyPress" prefHeight="75.0" prefWidth="75.0">
+            <Label alignment="CENTER" onKeyPressed="#handleKeyPress" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="4" GridPane.rowIndex="5">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="3" GridPane.rowIndex="5">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="4" GridPane.rowIndex="4">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.rowIndex="5">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.rowIndex="5">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.rowIndex="4">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.rowIndex="4">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="4" GridPane.rowIndex="3">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
-            <Label styleClass="gameboard" alignment="CENTER" prefHeight="75.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Label alignment="CENTER" prefHeight="75.0" prefWidth="75.0" styleClass="gameboard" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="35.0" />
                </font>
@@ -207,52 +208,52 @@
                         <RowConstraints minHeight="50.0" prefHeight="75.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="O" GridPane.columnIndex="8">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="O" GridPane.columnIndex="8">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="P" GridPane.columnIndex="9">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="P" GridPane.columnIndex="9">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="I" GridPane.columnIndex="7">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="I" GridPane.columnIndex="7">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="U" GridPane.columnIndex="6">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="U" GridPane.columnIndex="6">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="Y" GridPane.columnIndex="5">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="Y" GridPane.columnIndex="5">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="T" GridPane.columnIndex="4">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="T" GridPane.columnIndex="4">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="R" GridPane.columnIndex="3">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="R" GridPane.columnIndex="3">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="E" GridPane.columnIndex="2">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="E" GridPane.columnIndex="2">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="W" GridPane.columnIndex="1">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="W" GridPane.columnIndex="1">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="Q">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="Q">
                            <font>
                               <Font size="25.0" />
                            </font>
@@ -281,47 +282,47 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                      <children>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="F" GridPane.columnIndex="3">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="F" GridPane.columnIndex="3">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="D" GridPane.columnIndex="2">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="D" GridPane.columnIndex="2">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="S" GridPane.columnIndex="1">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="S" GridPane.columnIndex="1">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="J" GridPane.columnIndex="6">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="J" GridPane.columnIndex="6">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="H" GridPane.columnIndex="5">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="H" GridPane.columnIndex="5">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="G" GridPane.columnIndex="4">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="G" GridPane.columnIndex="4">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="L" GridPane.columnIndex="8">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="L" GridPane.columnIndex="8">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="K" GridPane.columnIndex="7">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="K" GridPane.columnIndex="7">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="A">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="A">
                            <font>
                               <Font size="25.0" />
                            </font>
@@ -344,47 +345,47 @@
                         <RowConstraints minHeight="50.0" prefHeight="75.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="Z" GridPane.columnIndex="1">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="Z" GridPane.columnIndex="1">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="V" GridPane.columnIndex="4">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="V" GridPane.columnIndex="4">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="C" GridPane.columnIndex="3">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="C" GridPane.columnIndex="3">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="X" GridPane.columnIndex="2">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="X" GridPane.columnIndex="2">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="M" GridPane.columnIndex="7">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="M" GridPane.columnIndex="7">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="N" GridPane.columnIndex="6">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="N" GridPane.columnIndex="6">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" text="B" GridPane.columnIndex="5">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="65.0" styleClass="keyboard" text="B" GridPane.columnIndex="5">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard-large" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="100.0" text="ENTER">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="100.0" styleClass="keyboard-large" text="ENTER">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label styleClass="keyboard-large" alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="100.0" text="DELETE" GridPane.columnIndex="8">
+                        <Label alignment="CENTER" onMouseClicked="#handleKeyboardPress" prefHeight="75.0" prefWidth="100.0" styleClass="keyboard-large" text="DELETE" GridPane.columnIndex="8">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -400,10 +401,24 @@
       </BorderPane>
    </bottom>
    <top>
-      <Button fx:id="reset" mnemonicParsing="false" onMouseClicked="#resetGame" onMouseEntered="#resetHover" text="RESET" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets top="60.0" />
-         </BorderPane.margin>
-      </Button>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button styleClass="button" mnemonicParsing="false" text="LOAD">
+               <HBox.margin>
+                  <Insets right="100.0" top="50.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="reset" styleClass="button" mnemonicParsing="false" onAction="#resetGame" onMouseEntered="#resetHover" text="RESET">
+               <HBox.margin>
+                  <Insets top="50.0" />
+               </HBox.margin>
+            </Button>
+            <Button styleClass="button" mnemonicParsing="false" text="SAVE">
+               <HBox.margin>
+                  <Insets left="100.0" top="50.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
    </top>
 </BorderPane>
