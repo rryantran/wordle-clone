@@ -1,5 +1,9 @@
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -8,16 +12,16 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+
 import javafx.stage.Popup;
 import javafx.stage.Stage;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Controller {
     private GameBoard gameBoard = new GameBoard();
     private StatBoard statBoard = new StatBoard();
     private Word word = new Word();
     private List<String> wrongLetters = new ArrayList<>();
+
     private int row = 0;
     private int col = 0;
     private int numGuesses = 0;
@@ -69,10 +73,10 @@ public class Controller {
             double centerX = stage.getWidth() / 2;
             double centerY = stage.getHeight() / 2;
 
-            // hide popup to access dimensions
+            // hide popup to access popup dimensions
             popup.hide();
 
-            // subtract popup size
+            // subtract popup size to get true center
             double finalX = centerX - popup.getWidth() / 2;
             double finalY = centerY - popup.getHeight() / 2;
 
@@ -108,7 +112,6 @@ public class Controller {
                     }
                 } else if (keyPressed.equals("BACK_SPACE")) {
                     if (col > 0) {
-                        hidePopup();
                         backspaceLogic();
 
                         Label label = getLabelByIndex(board, row, col);
@@ -135,7 +138,7 @@ public class Controller {
     }
 
     // ------------------------------------------------------------------------------------------------------------
-    // KEYBOARD BUTTONS
+    // KEY CLICK EVENT HANDLER
     // ------------------------------------------------------------------------------------------------------------
     public void handleKeyboardPress(MouseEvent e) {
         if (!gameOver) {
@@ -177,6 +180,42 @@ public class Controller {
     }
 
     // ------------------------------------------------------------------------------------------------------------
+    // KEY LOGIC
+    // ------------------------------------------------------------------------------------------------------------
+    private void enterLogic() {
+        // temporary word storage
+        List<String> currWord = new ArrayList<>();
+        for (int i = 0; i < 5; ++i) {
+            currWord.add(gameBoard.rowDequeue());
+        }
+
+        // push word to board
+        gameBoard.boardPush(currWord.get(0) + currWord.get(1) + currWord.get(2) + currWord.get(3) + currWord.get(4));
+
+        boolean valid = word.checkValidWord(gameBoard.boardPop().toLowerCase()); // check if word is valid
+
+        if (valid) {
+            col = 0;
+            setLabelColors(word.getWord());
+            incrementRow();
+            incrementGuesses();
+        } else {
+            showPopup(stage, "/fxml/InvalidWordPopup.fxml");
+            gameBoard.rowEnqueue(currWord.get(0));
+            gameBoard.rowEnqueue(currWord.get(1));
+            gameBoard.rowEnqueue(currWord.get(2));
+            gameBoard.rowEnqueue(currWord.get(3));
+            gameBoard.rowEnqueue(currWord.get(4));
+        }
+    }
+
+    private void backspaceLogic() {
+        hidePopup();
+        gameBoard.rowBackspace();
+        decrementCol();
+    }
+
+    // ------------------------------------------------------------------------------------------------------------
     // LABEL LOGIC
     // ------------------------------------------------------------------------------------------------------------
     private Label getLabelByIndex(GridPane gridPane, int row, int col) {
@@ -184,10 +223,12 @@ public class Controller {
             Integer rowIndex = GridPane.getRowIndex(node);
             Integer colIndex = GridPane.getColumnIndex(node);
 
-            if (rowIndex == null)
+            if (rowIndex == null) {
                 rowIndex = 0;
-            if (colIndex == null)
+            }
+            if (colIndex == null) {
                 colIndex = 0;
+            }
             if (rowIndex == row && colIndex == col && node instanceof Label) {
                 return (Label) node;
             }
@@ -213,42 +254,6 @@ public class Controller {
 
     private void incrementGuesses() {
         ++numGuesses;
-    }
-
-    // ------------------------------------------------------------------------------------------------------------
-    // KEY LOGIC
-    // ------------------------------------------------------------------------------------------------------------
-    private void enterLogic() {
-        // temporary word storage
-        List<String> currWord = new ArrayList<>();
-        for (int i = 0; i < 5; ++i) {
-            currWord.add(gameBoard.rowDequeue());
-        }
-
-        // push word to board
-        gameBoard.boardPush(currWord.get(0) + currWord.get(1) + currWord.get(2) + currWord.get(3) + currWord.get(4));
-
-        boolean valid = word.checkValidWord(gameBoard.boardPop().toLowerCase()); // check if word is valid
-
-        if (valid) {
-            col = 0;
-            setLabelColors(word.getWord());
-            incrementRow();
-            incrementGuesses();
-        } else {
-            showPopup(stage, "/fxml/InvalidWordPopup.fxml");
-            System.out.println("Invalid word");
-            gameBoard.rowEnqueue(currWord.get(0));
-            gameBoard.rowEnqueue(currWord.get(1));
-            gameBoard.rowEnqueue(currWord.get(2));
-            gameBoard.rowEnqueue(currWord.get(3));
-            gameBoard.rowEnqueue(currWord.get(4));
-        }
-    }
-
-    private void backspaceLogic() {
-        gameBoard.rowBackspace();
-        decrementCol();
     }
 
     // ------------------------------------------------------------------------------------------------------------
@@ -294,6 +299,7 @@ public class Controller {
                         label2.setStyle(color);
                     }
                 }
+
                 if (label3 != null) {
                     if (label3.getText().equals(letter)) {
                         label3.setStyle(color);
@@ -320,6 +326,7 @@ public class Controller {
                 }
             }
 
+            // max guesses reached and game loss
             if (numGuesses == 6) {
                 gameOver = true;
             }
@@ -335,6 +342,7 @@ public class Controller {
     // RESET GAME
     // ------------------------------------------------------------------------------------------------------------
     public void resetGame() {
+        // reset all variables
         gameBoard = new GameBoard();
         word = new Word();
         statBoard = new StatBoard();
@@ -346,6 +354,7 @@ public class Controller {
         wrongLetters.clear();
         hidePopup();
 
+        // reset gameboard
         for (int i = 0; i < 6; ++i) {
             for (int j = 0; j < 5; ++j) {
                 Label label = getLabelByIndex(board, i, j);
@@ -354,6 +363,7 @@ public class Controller {
             }
         }
 
+        // reset keyboard
         for (int i = 0; i < 10; ++i) {
             Label label1 = getLabelByIndex(keyrow1, 0, i);
             label1.setStyle("-fx-background-color: #808384");
@@ -368,6 +378,7 @@ public class Controller {
         }
     }
 
+    // hand cursor when hovering over reset button
     public void resetHover() {
         Cursor cursor = Cursor.HAND;
         reset.setCursor(cursor);

@@ -1,7 +1,8 @@
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Random;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Word {
     private String selectedWord;
@@ -14,6 +15,10 @@ public class Word {
         System.out.println("Selected word: " + selectedWord);
     }
 
+    public String getWord() {
+        return selectedWord;
+    }
+
     public void setWord() {
         try {
             wordList = Files.readAllLines(Paths.get("src/text/words.txt")); // read all words into a list
@@ -22,10 +27,6 @@ public class Word {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public String getWord() {
-        return selectedWord;
     }
 
     public boolean checkValidWord(String word) {

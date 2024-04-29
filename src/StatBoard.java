@@ -13,6 +13,7 @@ public class StatBoard {
     private int fiveGuess;
     private int sixGuess;
 
+    // default constructor
     public StatBoard() {
         loadStats();
         gamesPlayed = Integer.parseInt(statList.get(0));
@@ -23,6 +24,10 @@ public class StatBoard {
         fourGuess = Integer.parseInt(statList.get(5));
         fiveGuess = Integer.parseInt(statList.get(6));
         sixGuess = Integer.parseInt(statList.get(7));
+    }
+
+    public List<String> getStats() {
+        return statList;
     }
 
     private void loadStats() {
@@ -50,9 +55,5 @@ public class StatBoard {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public List<String> getStats() {
-        return statList;
     }
 }

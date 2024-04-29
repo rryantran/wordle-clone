@@ -1,6 +1,8 @@
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import java.util.List;
+
+import javafx.fxml.FXML;
+
+import javafx.scene.control.Label;
 
 public class StatBoardController {
     @FXML
