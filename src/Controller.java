@@ -54,7 +54,7 @@ public class Controller {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(FXMLPath));
             Parent root = loader.load();
 
-            if (FXMLPath.equals("/StatBoard.fxml")) {
+            if (FXMLPath.equals("/fxml/StatBoard.fxml")) {
                 // load stat board controller for stat board popup
                 statBoardController = loader.getController();
                 statBoardController.setStatBoard(statBoard);
@@ -236,7 +236,7 @@ public class Controller {
             incrementRow();
             incrementGuesses();
         } else {
-            showPopup(stage, "/InvalidWordPopup.fxml");
+            showPopup(stage, "/fxml/InvalidWordPopup.fxml");
             System.out.println("Invalid word");
             gameBoard.rowEnqueue(currWord.get(0));
             gameBoard.rowEnqueue(currWord.get(1));
@@ -327,7 +327,7 @@ public class Controller {
 
         if (gameOver) {
             statBoard.saveStats(win, numGuesses);
-            showPopup(stage, "/StatBoard.fxml");
+            showPopup(stage, "/fxml/StatBoard.fxml");
         }
     }
 

@@ -16,7 +16,7 @@ public class Word {
 
     public void setWord() {
         try {
-            wordList = Files.readAllLines(Paths.get("src/words.txt")); // read all words into a list
+            wordList = Files.readAllLines(Paths.get("src/text/words.txt")); // read all words into a list
             Random random = new Random();
             selectedWord = wordList.get(random.nextInt(wordList.size())); // select a random word from the list
         } catch (Exception e) {

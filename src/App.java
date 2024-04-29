@@ -12,7 +12,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/App.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/App.fxml"));
             Parent root = loader.load();
             Controller controller = loader.getController();
             Scene scene = new Scene(root);
@@ -22,7 +22,7 @@ public class App extends Application {
             scene.setOnKeyPressed(e -> {
                 controller.handleKeyPress(e);
             }); // key press event handler
-            scene.getStylesheets().add(getClass().getResource("/App.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/css/App.css").toExternalForm());
 
             stage.setScene(scene);
             stage.setFullScreen(true);

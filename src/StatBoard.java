@@ -27,7 +27,7 @@ public class StatBoard {
 
     private void loadStats() {
         try {
-            statList = Files.readAllLines(Paths.get("src/stats.txt"));
+            statList = Files.readAllLines(Paths.get("src/text/stats.txt"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -35,7 +35,7 @@ public class StatBoard {
 
     public void saveStats(boolean win, int numGuesses) {
         try {
-            List<String> stats = Files.readAllLines(Paths.get("src/stats.txt")); // read stats into a list
+            List<String> stats = Files.readAllLines(Paths.get("src/text/stats.txt")); // read stats into a list
             stats.set(0, String.valueOf(++gamesPlayed)); // +1 games played
             if (win) {
                 // +1 games won if win condition is set
@@ -45,7 +45,7 @@ public class StatBoard {
                 // +1 games won for number of guesses
                 stats.set(index, String.valueOf(Integer.parseInt(stats.get(index)) + 1));
             }
-            Files.write(Paths.get("src/stats.txt"), stats);
+            Files.write(Paths.get("src/text/stats.txt"), stats);
             loadStats();
         } catch (Exception e) {
             e.printStackTrace();
