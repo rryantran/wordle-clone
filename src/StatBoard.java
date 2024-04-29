@@ -46,8 +46,13 @@ public class StatBoard {
                 stats.set(index, String.valueOf(Integer.parseInt(stats.get(index)) + 1));
             }
             Files.write(Paths.get("src/stats.txt"), stats);
+            loadStats();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public List<String> getStats() {
+        return statList;
     }
 }

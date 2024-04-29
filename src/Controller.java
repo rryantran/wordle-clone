@@ -24,6 +24,10 @@ public class Controller {
     private boolean gameOver = false;
     private boolean win = false;
 
+    private Stage stage;
+    private Popup popup;
+    private StatBoardController statBoardController;
+
     @FXML
     private GridPane board;
     @FXML
@@ -34,13 +38,9 @@ public class Controller {
     private GridPane keyrow3;
     @FXML
     private Button reset;
-    @FXML
-    private Stage stage;
-    @FXML
-    private Popup popup;
 
     // ------------------------------------------------------------------------------------------------------------
-    // SET STAGE
+    // SET EXTERNAL VARIABLES
     // ------------------------------------------------------------------------------------------------------------
     public void setStage(Stage startStage) {
         stage = startStage;
@@ -53,26 +53,33 @@ public class Controller {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(FXMLPath));
             Parent root = loader.load();
-    
+
+            if (FXMLPath.equals("/StatBoard.fxml")) {
+                // load stat board controller for stat board popup
+                statBoardController = loader.getController();
+                statBoardController.setStatBoard(statBoard);
+            }
+
+            // set up popup
             popup = new Popup();
             popup.getContent().add(root);
             popup.show(stage);
-    
+
             // center position
-            double centerX = stage.getWidth() / 2d;
-            double centerY = stage.getHeight() / 6d;
-    
-            // hide popup
+            double centerX = stage.getWidth() / 2;
+            double centerY = stage.getHeight() / 2;
+
+            // hide popup to access dimensions
             popup.hide();
-    
+
             // subtract popup size
-            double finalX = centerX - popup.getWidth() / 2d;
-            double finalY = centerY - popup.getHeight() / 2d;
-    
+            double finalX = centerX - popup.getWidth() / 2;
+            double finalY = centerY - popup.getHeight() / 2;
+
             // set popup position
             popup.setX(finalX);
             popup.setY(finalY);
-    
+
             popup.show(stage);
         } catch (Exception e) {
             e.printStackTrace();
@@ -80,7 +87,7 @@ public class Controller {
     }
 
     public void hidePopup() {
-        if (popup.isShowing()) {
+        if (popup != null) {
             popup.hide();
         }
     }
@@ -320,6 +327,7 @@ public class Controller {
 
         if (gameOver) {
             statBoard.saveStats(win, numGuesses);
+            showPopup(stage, "/StatBoard.fxml");
         }
     }
 
@@ -336,6 +344,7 @@ public class Controller {
         gameOver = false;
         win = false;
         wrongLetters.clear();
+        hidePopup();
 
         for (int i = 0; i < 6; ++i) {
             for (int j = 0; j < 5; ++j) {
