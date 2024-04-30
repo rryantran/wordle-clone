@@ -29,6 +29,10 @@ public class Word {
         }
     }
 
+    public void setLoadedWord(String word) {
+        selectedWord = word;
+    }
+
     public boolean checkValidWord(String word) {
         return wordList.contains(word);
     }

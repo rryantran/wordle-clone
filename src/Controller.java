@@ -18,8 +18,10 @@ import javafx.stage.Stage;
 
 public class Controller {
     private GameBoard gameBoard = new GameBoard();
+    private GameHistory gameHistory = new GameHistory();
     private StatBoard statBoard = new StatBoard();
     private Word word = new Word();
+    private SaveFile saveFile = new SaveFile();
     private List<String> wrongLetters = new ArrayList<>();
 
     private int row = 0;
@@ -42,6 +44,10 @@ public class Controller {
     private GridPane keyrow3;
     @FXML
     private Button reset;
+    @FXML
+    private Button load;
+    @FXML
+    private Button save;
 
     // ------------------------------------------------------------------------------------------------------------
     // SET EXTERNAL VARIABLES
@@ -109,6 +115,8 @@ public class Controller {
                     if (col >= 5) {
                         enterLogic();
                         checkGameOver();
+                    } else {
+                        showPopup(stage, "/fxml/TooShortPopup.fxml");
                     }
                 } else if (keyPressed.equals("BACK_SPACE")) {
                     if (col > 0) {
@@ -121,15 +129,17 @@ public class Controller {
                         }
                     }
                 } else if (Character.isLetter(keyPressed.charAt(0)) && keyPressed.length() == 1) {
-                    gameBoard.rowEnqueue(keyPressed);
-
-                    Label label = getLabelByIndex(board, row, col);
-
-                    if (label != null) {
-                        label.setText(keyPressed);
-                    }
-
+                    hidePopup();
                     if (col < 5) {
+                        gameBoard.rowEnqueue(keyPressed);
+                        gameHistory.addLetter(keyPressed);
+
+                        Label label = getLabelByIndex(board, row, col);
+
+                        if (label != null) {
+                            label.setText(keyPressed);
+                        }
+
                         incrementCol();
                     }
                 }
@@ -151,6 +161,8 @@ public class Controller {
                     if (col >= 5) {
                         enterLogic();
                         checkGameOver();
+                    } else {
+                        showPopup(stage, "/fxml/TooShortPopup.fxml");
                     }
                 } else if (keyPressed.equals("DELETE")) {
                     if (col > 0) {
@@ -163,15 +175,17 @@ public class Controller {
                         }
                     }
                 } else if (Character.isLetter(keyPressed.charAt(0)) && keyPressed.length() == 1) {
-                    gameBoard.rowEnqueue(keyPressed);
-
-                    Label label = getLabelByIndex(board, row, col);
-
-                    if (label != null) {
-                        label.setText(keyPressed);
-                    }
-
+                    hidePopup();
                     if (col < 5) {
+                        gameBoard.rowEnqueue(keyPressed);
+                        gameHistory.addLetter(keyPressed);
+
+                        Label label = getLabelByIndex(board, row, col);
+
+                        if (label != null) {
+                            label.setText(keyPressed);
+                        }
+
                         incrementCol();
                     }
                 }
@@ -196,7 +210,7 @@ public class Controller {
 
         if (valid) {
             col = 0;
-            setLabelColors(word.getWord());
+            setLabelColors(word.getWord(), row);
             incrementRow();
             incrementGuesses();
         } else {
@@ -212,6 +226,7 @@ public class Controller {
     private void backspaceLogic() {
         hidePopup();
         gameBoard.rowBackspace();
+        gameHistory.removeLetterLast();
         decrementCol();
     }
 
@@ -259,7 +274,7 @@ public class Controller {
     // ------------------------------------------------------------------------------------------------------------
     // GAME LOGIC
     // ------------------------------------------------------------------------------------------------------------
-    private void setLabelColors(String word) {
+    private void setLabelColors(String word, int row) {
         for (int j = 0; j < 5; ++j) {
             Label label = getLabelByIndex(board, row, j);
             String letter = String.valueOf(word.charAt(j)).toUpperCase();
@@ -335,6 +350,8 @@ public class Controller {
         if (gameOver) {
             statBoard.saveStats(win, numGuesses);
             showPopup(stage, "/fxml/StatBoard.fxml");
+            load.setDisable(true);
+            save.setDisable(true);
         }
     }
 
@@ -343,9 +360,12 @@ public class Controller {
     // ------------------------------------------------------------------------------------------------------------
     public void resetGame() {
         // reset all variables
+        gameHistory.clearLog();
         gameBoard = new GameBoard();
-        word = new Word();
+        gameHistory = new GameHistory();
         statBoard = new StatBoard();
+        word = new Word();
+        saveFile = new SaveFile();
         row = 0;
         col = 0;
         numGuesses = 0;
@@ -353,6 +373,8 @@ public class Controller {
         win = false;
         wrongLetters.clear();
         hidePopup();
+        load.setDisable(false);
+        save.setDisable(false);
 
         // reset gameboard
         for (int i = 0; i < 6; ++i) {
@@ -378,9 +400,66 @@ public class Controller {
         }
     }
 
-    // hand cursor when hovering over reset button
-    public void resetHover() {
+    // ------------------------------------------------------------------------------------------------------------
+    // LOAD / SAVE
+    // ------------------------------------------------------------------------------------------------------------
+    public void saveGame() {
+        saveFile.makeSave(word.getWord(), wrongLetters, row, col, numGuesses, gameHistory.getGameHistory());
+        saveFile.saveSave("src/text/save.txt");
+    }
+
+    public void loadGame() {
+        saveFile.loadSave("src/text/save.txt");
+        List<String> saveToLoad = saveFile.getSave();
+        int j = 0;
+
+        // load save state into current game variables
+        word.setLoadedWord(saveToLoad.get(0));
+        for (int i = 1; i < saveToLoad.size(); ++i) {
+            String currItem = saveToLoad.get(i);
+            if (Character.isLetter(currItem.charAt(0)) && currItem.length() == 1 && j == 0) {
+                wrongLetters.add(currItem);
+            } else if (Character.isDigit(currItem.charAt(0))) {
+                if (j == 0) {
+                    row = Integer.parseInt(currItem);
+                    ++j;
+                } else if (j == 1) {
+                    col = Integer.parseInt(currItem);
+                    ++j;
+                } else if (j == 2) {
+                    numGuesses = Integer.parseInt(currItem);
+                    ++j;
+                }
+            } else {
+                gameHistory.addLetter(currItem);
+            }
+        }
+
+        // load saved rows (completed guesses)
+        for (int i = 0; i < row; ++i) {
+            for (int k = 0; k < 5; ++k) {
+                Label label = getLabelByIndex(board, i, k);
+                label.setText(gameHistory.removeLetterFirst());
+            }
+
+            setLabelColors(word.getWord(), i);
+        }
+        // load saved row (incomplete guess)
+        for (int i = 0; i < col; ++i) {
+            Label label = getLabelByIndex(board, row, i);
+            label.setText(gameHistory.removeLetterFirst());
+            gameBoard.rowEnqueue(label.getText());
+        }
+    }
+
+    // ------------------------------------------------------------------------------------------------------------
+    // MISC
+    // ------------------------------------------------------------------------------------------------------------
+    public void hover() {
+        // hand cursor when hovering over button
         Cursor cursor = Cursor.HAND;
         reset.setCursor(cursor);
+        load.setCursor(cursor);
+        save.setCursor(cursor);
     }
 }
