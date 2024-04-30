@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.LinkedList;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -411,6 +412,7 @@ public class Controller {
     public void loadGame() {
         saveFile.loadSave("src/text/save.txt");
         List<String> saveToLoad = saveFile.getSave();
+        LinkedList<String> gameHistoryCopy = new LinkedList<String>();
         int j = 0;
 
         // load save state into current game variables
@@ -435,11 +437,16 @@ public class Controller {
             }
         }
 
+        // copy game history
+        for (String item : gameHistory.getGameHistory()) {
+            gameHistoryCopy.add(item);
+        }
+
         // load saved rows (completed guesses)
         for (int i = 0; i < row; ++i) {
             for (int k = 0; k < 5; ++k) {
                 Label label = getLabelByIndex(board, i, k);
-                label.setText(gameHistory.removeLetterFirst());
+                label.setText(gameHistoryCopy.removeFirst());
             }
 
             setLabelColors(word.getWord(), i);
@@ -447,7 +454,7 @@ public class Controller {
         // load saved row (incomplete guess)
         for (int i = 0; i < col; ++i) {
             Label label = getLabelByIndex(board, row, i);
-            label.setText(gameHistory.removeLetterFirst());
+            label.setText(gameHistoryCopy.removeFirst());
             gameBoard.rowEnqueue(label.getText());
         }
     }
