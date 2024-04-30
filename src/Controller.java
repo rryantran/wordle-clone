@@ -360,6 +360,7 @@ public class Controller {
     // ------------------------------------------------------------------------------------------------------------
     public void resetGame() {
         // reset all variables
+        gameHistory.clearLog();
         gameBoard = new GameBoard();
         gameHistory = new GameHistory();
         statBoard = new StatBoard();
