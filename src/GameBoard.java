@@ -13,6 +13,11 @@ public class GameBoard {
         iterator = 0;
     }
 
+    // get the current row
+    public LinkedList<String> getRow() {
+        return gameRow;
+    }
+
     // add a letter to the back of the row
     public void rowEnqueue(String c) {
         if (iterator < 5) {

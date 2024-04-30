@@ -403,17 +403,17 @@
    <top>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button styleClass="button" mnemonicParsing="false" text="LOAD">
+            <Button fx:id="load" mnemonicParsing="false" onAction="#loadGame" onMouseEntered="#hover" styleClass="button" text="LOAD">
                <HBox.margin>
                   <Insets right="100.0" top="50.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="reset" styleClass="button" mnemonicParsing="false" onAction="#resetGame" onMouseEntered="#resetHover" text="RESET">
+            <Button fx:id="reset" mnemonicParsing="false" onAction="#resetGame" onMouseEntered="#hover" styleClass="button" text="RESET">
                <HBox.margin>
                   <Insets top="50.0" />
                </HBox.margin>
             </Button>
-            <Button styleClass="button" mnemonicParsing="false" text="SAVE">
+            <Button fx:id="save" mnemonicParsing="false" onAction="#saveGame" onMouseEntered="#hover" styleClass="button" text="SAVE">
                <HBox.margin>
                   <Insets left="100.0" top="50.0" />
                </HBox.margin>
