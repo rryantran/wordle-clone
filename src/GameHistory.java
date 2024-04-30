@@ -10,6 +10,7 @@ public class GameHistory {
 
     public GameHistory() {
         gameHistory = new LinkedList<String>();
+        clearLog();
     }
 
     public void addLetter(String s) {
